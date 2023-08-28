@@ -20,8 +20,8 @@
 
 title: Your Name IMMERSE's Site
 
-baseurl: "/student_website_template" # the subpath of your site, e.g. /blog
-url: "https://byu-cpe.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/jaggu_website_template" # the subpath of your site, e.g. /blog
+url: "https://jagadeshrao.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 collections:
   pages:
