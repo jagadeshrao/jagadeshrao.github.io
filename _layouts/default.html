@@ -5,8 +5,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <meta name="author" content="{{ site.author }}">
 
   <title>
     {% if page.title %}
@@ -35,7 +35,12 @@
 
       <nav class="navbar sticky-top navbar-expand-lg title-bar border-bottom d-flex flex-row">
         <div class="flex-fill">
-          <p class="title-text"><a href="{{site.url}}{{ site.baseurl }}/">{{site.title}}</a></p>
+          <p class="title-text"><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></p>
+        </div>
+        <div class="nav-links">
+          <a href="{{ site.baseurl }}/">Blog</a>
+          <a href="{{ site.baseurl }}/pages/about/">About</a>
+          <a href="{{ site.baseurl }}/pages/career/">Career</a>
         </div>
       </nav>
 
@@ -47,6 +52,9 @@
             {% endif %}
             {{ page.title }}
           </h1>
+          {% if page.date %}
+          <p class="post-date text-muted">{{ page.date | date: "%B %-d, %Y" }}</p>
+          {% endif %}
 
           <div class="page-content">
             {{ content }}
