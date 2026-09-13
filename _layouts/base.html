@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <meta name="author" content="{{ site.author }}">
+
+  <title>
+    {% if page.title %}
+    {{ page.title | escape | append: " - " | append: site.title }}
+    {% else %}
+    {{ site.title | escape }}
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet" href={{ "/css/main.css" | relative_url }}>
+
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/#about">about</a>
+        <a href="{{ site.baseurl }}/#projects">projects</a>
+        <a href="{{ site.baseurl }}/#career">career</a>
+        <a href="{{ site.baseurl }}/blog/">blog</a>
+        <a href="{{ site.baseurl }}/#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; {{ "now" | date: "%Y" }} {{ site.author }}</span>
+      <span class="footer-links">
+        <a href="https://github.com/jagadeshrao">GitHub</a>
+        <a href="https://linkedin.com/in/jagadeshrao-rudrapankte">LinkedIn</a>
+        <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
