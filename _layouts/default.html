@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,63 +10,54 @@
 
   <title>
     {% if page.title %}
-    {{ page.title | escape | append: " • " | append: site.title }}
+    {{ page.title | escape | append: " - " | append: site.title }}
     {% else %}
     {{ site.title | escape }}
     {% endif %}
   </title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-  <!-- Custom styles for this template -->
   <link rel="stylesheet" href={{ "/css/main.css" | relative_url }}>
 
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="d-flex" id="wrapper">
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-
-      <nav class="navbar sticky-top navbar-expand-lg title-bar border-bottom d-flex flex-row">
-        <div class="flex-fill">
-          <p class="title-text"><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></p>
-        </div>
-        <div class="nav-links">
-          <a href="{{ site.baseurl }}/">Blog</a>
-          <a href="{{ site.baseurl }}/pages/about/">About</a>
-          <a href="{{ site.baseurl }}/pages/career/">Career</a>
-        </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/">blog</a>
+        <a href="{{ site.baseurl }}/pages/about/">about</a>
+        <a href="{{ site.baseurl }}/pages/career/">career</a>
       </nav>
-
-      <div class="container">
-        <article class="page">
-          <h1 class="page-title" id="page-title">
-            {% if page.icon %}
-            <i class="{{ page.icon }}"></i>
-            {% endif %}
-            {{ page.title }}
-          </h1>
-          {% if page.date %}
-          <p class="post-date text-muted">{{ page.date | date: "%B %-d, %Y" }}</p>
-          {% endif %}
-
-          <div class="page-content">
-            {{ content }}
-          </div>
-        </article>
-      </div>
     </div>
-    <!-- /#page-content-wrapper -->
+  </header>
 
-  </div>
-  <!-- /#wrapper -->
+  <main class="container">
+    <article class="page">
+      <h1 class="page-title" id="page-title">{{ page.title }}</h1>
+      {% if page.date %}
+      <p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p>
+      {% endif %}
 
+      <div class="page-content">
+        {{ content }}
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; {{ "now" | date: "%Y" }} {{ site.author }}</span>
+      <span class="footer-links">
+        <a href="https://github.com/jagadeshrao">GitHub</a>
+        <a href="https://linkedin.com/in/jagadeshrao-rudrapankte">LinkedIn</a>
+        <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+      </span>
+    </div>
+  </footer>
 
 </body>
 
